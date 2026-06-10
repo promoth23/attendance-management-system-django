@@ -13,15 +13,16 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import dj_database_url
 import os
 from pathlib import Path
-
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv()  # Load variables from .env file
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
+print(f"SECRET_KEY from environment: {os.environ.get('SECRET_KEY')}")
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('MY_SECRET_KEY')  # Consider using your secret key
 
